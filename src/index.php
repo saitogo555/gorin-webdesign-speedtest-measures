@@ -169,7 +169,6 @@ $selectedTask = findTaskByQuery(
           <div class="card-body p-4 p-lg-5">
             <div id="problem-body"></div>
           </div>
-          <script id="problem-markdown" type="text/plain"><?= htmlspecialchars($selectedTask['task']['markdown'], ENT_QUOTES, 'UTF-8') ?></script>
         </div>
       </section>
     <?php elseif ($taskGroups === []): ?>
@@ -203,11 +202,11 @@ $selectedTask = findTaskByQuery(
   <?php if ($selectedTask !== null): ?>
     <script src="./lib/marked.min.js"></script>
     <script>
-      const markdownSource = document.getElementById('problem-markdown');
+      const markdownContent = <?= json_encode($selectedTask['task']['markdown'], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?>;
       const problemBody = document.getElementById('problem-body');
 
-      if (markdownSource && problemBody && window.marked) {
-        problemBody.innerHTML = window.marked.parse(markdownSource.textContent ?? '');
+      if (problemBody && window.marked) {
+        problemBody.innerHTML = window.marked.parse(markdownContent);
         for (const table of problemBody.querySelectorAll('table')) {
           table.classList.add('table', 'table-striped', 'table-bordered');
         }
