@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "テクノロジー",
+    "children": [
+      {
+        "id": 2,
+        "name": "Web開発",
+        "children": []
+      },
+      {
+        "id": 3,
+        "name": "モバイル",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "デザイン",
+    "children": [
+      {
+        "id": 5,
+        "name": "UI/UX",
+        "children": []
+      },
+      {
+        "id": 6,
+        "name": "グラフィック",
+        "children": []
+      }
+    ]
+  }
+]
